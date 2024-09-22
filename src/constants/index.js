@@ -1,4 +1,3 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
 import {
     car,
     contact,
@@ -11,19 +10,18 @@ import {
     javascript,
     linkedin,
     mongodb,
-    motion,
     mui,
     nextjs,
     nodejs,
     pricewise,
     react,
-    redux,
     sass,
     snapgram,
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript,
+    mediaRoole
 } from "../assets/icons";
 
 export const skills = [
@@ -63,11 +61,6 @@ export const skills = [
         type: "Database",
     },
     {
-        imageUrl: motion,
-        name: "Motion",
-        type: "Animation",
-    },
-    {
         imageUrl: mui,
         name: "Material-UI",
         type: "Frontend",
@@ -88,11 +81,6 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: redux,
-        name: "Redux",
-        type: "State Management",
-    },
-    {
         imageUrl: sass,
         name: "Sass",
         type: "Frontend",
@@ -111,11 +99,11 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
+        title: "Fullstack TS Developer",
+        company_name: "Roole Media",
+        icon: mediaRoole,
         iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
+        date: "Sepembre 2023 - Aout 2025",
         points: [
             "Developing and maintaining web applications using React.js and other related technologies.",
             "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -124,37 +112,11 @@ export const experiences = [
         ],
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "Javascript Frontend Developer",
+        company_name: "Inow",
+        icon: mediaRoole,
         iconBg: "#fbc3bc",
         date: "Jan 2021 - Feb 2022",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
-        iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
         points: [
             "Developing and maintaining web applications using React.js and other related technologies.",
             "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -186,43 +148,64 @@ export const projects = [
     {
         iconUrl: pricewise,
         theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/pricewise',
+        name: 'Portfolio Three.JS',
+        description: `C'est le projet ou vous etes. Il est developpé en javascript Three.js`,
+        link: 'https://github.com/VictorSulivan/3D-Portfolio',
     },
     {
         iconUrl: threads,
-        theme: 'btn-back-green',
-        name: 'Full Stack Threads Clone',
-        description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-        link: 'https://github.com/adrianhajdin/threads',
+        theme: 'btn-back-black',
+        name: 'Frontend Chess Game Web',
+        description: `Ce projet n'est pas finis mais il s'agit d'un jeu d'echecs online multijoueur dans ca finalité`,
+        link: 'https://github.com/VictorSulivan/ChessGameWeb',
     },
     {
         iconUrl: car,
         theme: 'btn-back-blue',
-        name: 'Car Finding App',
-        description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
+        name: 'Shop Backend use Stripe and golang',
+        description: `C'est un court projet en golang pour tester l'utilisation de l'api Stripe permetant de proceder a des payement en ligne.`,
+        link: 'https://github.com/VictorSulivan/StripeGoBackend',
     },
     {
         iconUrl: snapgram,
         theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        name: 'Frontend simple ATM in C',
+        description: `C'est un petit projet pour tester mes compétences en language C simulant les comportements basiques d'un ATM au travers d'un terminal.`,
+        link: 'https://github.com/VictorSulivan/ATM-Easy-C',
     },
     {
         iconUrl: estate,
         theme: 'btn-back-black',
-        name: 'Real-Estate Application',
-        description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
+        name: 'Fullstack Whatsapp clone',
+        description: `Il s'agit d'un projet fullstack rassemblant back et front avec une connection MongoDB pour simuler un clone de Whatsap avec en Front React et en Back Node (toujours en cours non finis).`,
+        link: 'https://github.com/VictorSulivan/WhatsapClone',
     },
     {
         iconUrl: summiz,
-        theme: 'btn-back-yellow',
-        name: 'AI Summarizer Application',
-        description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
+        theme: 'btn-back-red',
+        name: 'Use pokeAPI',
+        description: `C'est un petit projet perso amusant utilisant une API selectionnant un pokemon aleatoirement dans une base de donnée public en ligne. `,
+        link: 'https://github.com/VictorSulivan/pokeapi',
+    },
+    {
+        iconUrl: snapgram,
+        theme: 'btn-back-pink',
+        name: 'False Python Browser',
+        description: `C'est un petit code python fait pour tester des fonctionnalitées en python permettant de faire une application de bureau qui une fois cliquer ouvre google.`,
+        link: 'https://github.com/VictorSulivan/Python_Browser',
+    },
+    {
+        iconUrl: estate,
+        theme: 'btn-back-black',
+        name: 'Java Morpion in the shell',
+        description: `Il s'agit d'un petit jeu en Java jouable dans le shell ou il est executer et permettant de faire une partie de Morpion contre un autre joueur.`,
+        link: 'https://github.com/VictorSulivan/Morpion_java',
+    },
+    {
+        iconUrl: summiz,
+        theme: 'btn-back-red',
+        name: 'Memory Game Online',
+        description: `C'est un projet fait en 1 mois en PHP; CSS HTML, Javascript pour faire divers niveau du jeu du memory sur un site web avec compte user etc...`,
+        link: 'https://github.com/VictorSulivan/Puissance-4',
     }
 ];
