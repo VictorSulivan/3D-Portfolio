@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
+import { inow, matech, roole } from "../assets/images";
 import {
     car,
     contact,
@@ -111,56 +111,50 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
+        //Du 02 au 26 mai et du 12 juin au 7 juillet soit 8 semaines
+
+
+        title: "Javascript Stagiaire Developer",
+        company_name: "Inow",
+        icon: inow,
         iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
+        date: "May 2023 - June 2023",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+            "Developing and maintaining web applications using  JavaScript Vanilla, and .NET.",
+            "Worked with JavaScript Vanilla and .NET for 2 months to build and optimize web functionalities.",
             "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Participating in code reviews and providing constructive feedback to other developers."
         ],
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "React TypeScript Developer (work-study student)",
+        company_name: "Roole",
+        icon: roole,
         iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
+        date: "September 2023 - August 2025",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Development and maintenance of web applications using React.js, TypeScript and other front-end technologies.",
+            "Working on the back-end to manage APIs and integrate server-side functionality.",
+            "Collaborating with the tech team in an agile environment to ensure delivery of quality products.",
+            "Participation in Agile rituals (daily, sprint planning, retrospective) to optimize teamwork.",
+            "Responsive design and cross-browser compatibility",
+            "Code review and sharing of best practices to improve code quality."   
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
+        title: "Freelance Developer",
+        company_name: "MaTech",
+        icon: matech,
         iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        date: "July 2024 - Today",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+            "Development and maintenance of web and software applications in fullstack, using various languages and technologies.",
+            "Expertise in JavaScript, TypeScript, C, C++, C#, Golang, Node.js, SQL and NoSQL",
+            "Ability to work on a variety of projects: web applications, APIs, high-performance backend systems and software solutions",
+            "Collaboration with customers to define their technical needs and propose appropriate solutions",
+            "Implementation of best practices in development, testing and performance optimization",
+            "Working independently or as part of a team, with an agile approach and strong adaptability to project requirements."
+            ],
     },
 ];
 
