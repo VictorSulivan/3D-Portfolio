@@ -11,6 +11,7 @@ import nextjs from './nextjs.svg'
 import nodejs from './nodejs.svg'
 import react from './react.svg'
 import sass from './sass.svg'
+import atm from "./atm-machine.png"
 import tailwindcss from './tailwindcss.svg'
 import typescript from './typescript.svg'
 import linkedin from './linkedin.svg'
@@ -20,17 +21,32 @@ import estate from './estate.svg'
 import pricewise from './pricewise.svg'
 import snapgram from './snapgram.svg'
 import summiz from './summiz.svg'
+import chess from './digital-strategy.png'
 import threads from './threads.svg'
 import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
-
+import portfolio from './portfolio-analysis.png'
+import backend from './backend.png'
+import whatsapp from './whatsapp.png'
+import spectrum from './spectrum.png'
+import fullStack from './full-stack-developer.png'
+import globe from './globe.png'
+import ticTacToe from './tic-tac-toe.png'
 export {
     css,
+    ticTacToe,
+    globe,
+    spectrum,
+    fullStack,
+    whatsapp,
+    backend,
     express,
     git,
+    portfolio,
     github,
+    atm,
     html,
     javascript,
     mongodb,
@@ -45,6 +61,7 @@ export {
     linkedin,
     twitter,
     car,
+    chess,
     estate,
     pricewise,
     snapgram,
