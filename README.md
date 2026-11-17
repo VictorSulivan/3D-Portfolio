@@ -7,14 +7,30 @@ Portfolio professionnel (Next.js + Tailwind) avec :
 - listing GitHub du compte **VictorSulivan** + organisations associées
 - CRM admin `/admin` protégé par Cursor Identity (publication **privée**, owner only)
 
+## Déploiement Vercel
+
+Le projet est **Next.js** (plus Vite). `vercel.json` fixe `"framework": "nextjs"` et **ne définit pas** `outputDirectory` (pas de `dist`).
+
+Dans le dashboard Vercel → Project Settings → Build and Deployment :
+
+| Setting | Valeur |
+| --- | --- |
+| Framework Preset | **Next.js** |
+| Build Command | laisser le défaut / `npm run build` (ou vide = preset Next) |
+| Output Directory | **vide** (pas `dist`) — géré par Next (`.next`) |
+| Install Command | défaut (`npm install`) |
+| Node.js Version | **26.x** (ou laisser `engines` du `package.json`) |
+
+Si le build échoue avec `STATIC_BUILD_NO_OUT_DIR` / `dist`, le projet est encore configuré comme site statique/Vite : corriger le Framework Preset et vider Output Directory, puis redéployer.
+
 ## Node.js (Vercel)
 
-Le runtime est piné à **26.x** via le dépôt (pas de champ Node dans `vercel.json` — non supporté) :
+Le runtime est piné à **26.x** via le dépôt :
 
 - `package.json` → `"engines": { "node": "26.x" }` (prioritaire sur les Project Settings)
 - `.nvmrc` / `.node-version` → `26`
 
-Si un build affiche encore Node 20.x, vérifiez que le déploiement cible bien le tip de branche (pas un ancien SHA), puis en secours : Vercel → Project Settings → Build and Deployment → **Node.js Version = 26.x**.
+Secours dashboard : Build and Deployment → **Node.js Version = 26.x**.
 
 ## Développement
 
