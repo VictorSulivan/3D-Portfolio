@@ -7,6 +7,15 @@ Portfolio professionnel (Next.js + Tailwind) avec :
 - listing GitHub du compte **VictorSulivan** + organisations associées
 - CRM admin `/admin` protégé par Cursor Identity (publication **privée**, owner only)
 
+## Node.js (Vercel)
+
+Le runtime est piné à **26.x** via le dépôt (pas de champ Node dans `vercel.json` — non supporté) :
+
+- `package.json` → `"engines": { "node": "26.x" }` (prioritaire sur les Project Settings)
+- `.nvmrc` / `.node-version` → `26`
+
+Si un build affiche encore Node 20.x, vérifiez que le déploiement cible bien le tip de branche (pas un ancien SHA), puis en secours : Vercel → Project Settings → Build and Deployment → **Node.js Version = 26.x**.
+
 ## Développement
 
 ```bash
