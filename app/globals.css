@@ -1,3 +1,6 @@
+/* Runtime CSS import — avoids next/font/google build-time Google fetch on Vercel. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +10,8 @@
   --moss: #4f7d5f;
   --brass: #c9a45c;
   --mist: #e4ebe7;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
