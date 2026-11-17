@@ -7,14 +7,30 @@ Portfolio professionnel (Next.js + Tailwind) avec :
 - listing GitHub du compte **VictorSulivan** + organisations associées
 - CRM admin `/admin` protégé par Cursor Identity (publication **privée**, owner only)
 
+## Déploiement Vercel
+
+Le projet est **Next.js** (plus Vite). `vercel.json` fixe `"framework": "nextjs"` et `"outputDirectory": null` pour annuler l’ancien Output Directory `dist` du dashboard.
+
+Dans le dashboard Vercel → Project Settings → Build and Deployment :
+
+| Setting | Valeur |
+| --- | --- |
+| Framework Preset | **Next.js** |
+| Build Command | laisser le défaut / `npm run build` (ou vide = preset Next) |
+| Output Directory | **vide** (pas `dist`) — géré par Next (`.next`) |
+| Install Command | défaut (`npm install`) |
+| Node.js Version | **26.x** (ou laisser `engines` du `package.json`) |
+
+Si le build échoue avec `STATIC_BUILD_NO_OUT_DIR` / `dist`, le projet est encore configuré comme site statique/Vite : corriger le Framework Preset et vider Output Directory, puis redéployer.
+
 ## Node.js (Vercel)
 
-Le runtime est piné à **26.x** via le dépôt (pas de champ Node dans `vercel.json` — non supporté) :
+Le runtime est piné à **26.x** via le dépôt :
 
 - `package.json` → `"engines": { "node": "26.x" }` (prioritaire sur les Project Settings)
 - `.nvmrc` / `.node-version` → `26`
 
-Si un build affiche encore Node 20.x, vérifiez que le déploiement cible bien le tip de branche (pas un ancien SHA), puis en secours : Vercel → Project Settings → Build and Deployment → **Node.js Version = 26.x**.
+Secours dashboard : Build and Deployment → **Node.js Version = 26.x**.
 
 ## Développement
 
@@ -30,11 +46,21 @@ Admin local : identité simulée privée (`cursor/identity.dev.js`).
 
 | Variable | Usage |
 | --- | --- |
-| `DATABASE_URL` | Postgres production (fourni par publish-app) |
+| `DATABASE_URL` | Postgres (CRM + projets persistés). Obligatoire sur Vercel pour le CRM. |
 | `GITHUB_USERNAME` | Défaut `VictorSulivan` |
 | `GITHUB_TOKEN` | Optionnel, pour remonter les limites API |
 
 Ne jamais committer de secrets. En local, laissez `DATABASE_URL` non défini pour PGlite.
+
+### Postgres sur Vercel (runtime)
+
+Sans `DATABASE_URL`, le site public affiche les projets seed (lecture seule). PGlite **n’est pas** utilisé sur Vercel (échec serverless).
+
+1. Vercel → Project → **Storage** → créer **Postgres** (ou Neon/Supabase).
+2. Relier la store au projet (injecte `DATABASE_URL`, parfois `POSTGRES_URL` — copier la connection string dans `DATABASE_URL` si besoin).
+3. Settings → Environment Variables → `DATABASE_URL` pour Preview **et** Production.
+4. Redéployer. Le script `npm run build` exécute `scripts/migrate.mjs` si `DATABASE_URL` est présent.
+5. CRM `/admin` : écritures possibles seulement avec Postgres + auth (Cursor Identity sur publish privé ; sur Vercel public, les mutations restent protégées mais l’identité Cursor n’est pas fournie — préférer Cursor publish privé pour le CRM).
 
 ## Publication Cursor
 

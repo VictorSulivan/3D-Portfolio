@@ -12,10 +12,22 @@ import { listProjects } from "@/lib/projects";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [projects, github] = await Promise.all([
+  const [projectsResult, githubResult] = await Promise.allSettled([
     listProjects(),
     fetchGithubPortfolio(),
   ]);
+  const projects =
+    projectsResult.status === "fulfilled" ? projectsResult.value : [];
+  const github =
+    githubResult.status === "fulfilled"
+      ? githubResult.value
+      : {
+          username: "VictorSulivan",
+          orgs: [] as string[],
+          repos: [],
+          source: "fallback" as const,
+          message: "GitHub temporairement indisponible.",
+        };
 
   return (
     <main className="bg-ink-950 text-mist-100">
