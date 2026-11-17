@@ -9,7 +9,7 @@ Portfolio professionnel (Next.js + Tailwind) avec :
 
 ## Déploiement Vercel
 
-Le projet est **Next.js** (plus Vite). `vercel.json` fixe `"framework": "nextjs"` et **ne définit pas** `outputDirectory` (pas de `dist`).
+Le projet est **Next.js** (plus Vite). `vercel.json` fixe `"framework": "nextjs"` et `"outputDirectory": null` pour annuler l’ancien Output Directory `dist` du dashboard.
 
 Dans le dashboard Vercel → Project Settings → Build and Deployment :
 
