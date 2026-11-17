@@ -1,9 +1,20 @@
 import { requireOwner } from "@/lib/auth";
+import { DatabaseUnavailableError } from "@/lib/db";
 import { deleteProject, updateProject } from "@/lib/projects";
 
 export const dynamic = "force-dynamic";
 
 type Params = { params: Promise<{ id: string }> };
+
+function dbUnavailableResponse() {
+  return Response.json(
+    {
+      error:
+        "Base de données absente. Ajoutez DATABASE_URL (Postgres) sur Vercel.",
+    },
+    { status: 503, headers: { "cache-control": "private, no-store" } },
+  );
+}
 
 export async function PUT(request: Request, { params }: Params) {
   const owner = await requireOwner(request);
@@ -24,25 +35,31 @@ export async function PUT(request: Request, { params }: Params) {
     return Response.json({ error: "Le titre est requis." }, { status: 400 });
   }
 
-  const project = await updateProject(id, {
-    title,
-    description: typeof body?.description === "string" ? body.description : "",
-    url: typeof body?.url === "string" ? body.url : "",
-    repo_url: typeof body?.repo_url === "string" ? body.repo_url : "",
-    tags: typeof body?.tags === "string" ? body.tags : "",
-    featured: Boolean(body?.featured),
-    sort_order:
-      typeof body?.sort_order === "number" ? body.sort_order : undefined,
-  });
+  try {
+    const project = await updateProject(id, {
+      title,
+      description:
+        typeof body?.description === "string" ? body.description : "",
+      url: typeof body?.url === "string" ? body.url : "",
+      repo_url: typeof body?.repo_url === "string" ? body.repo_url : "",
+      tags: typeof body?.tags === "string" ? body.tags : "",
+      featured: Boolean(body?.featured),
+      sort_order:
+        typeof body?.sort_order === "number" ? body.sort_order : undefined,
+    });
 
-  if (!project) {
-    return Response.json({ error: "Projet introuvable." }, { status: 404 });
+    if (!project) {
+      return Response.json({ error: "Projet introuvable." }, { status: 404 });
+    }
+
+    return Response.json(
+      { project },
+      { headers: { "cache-control": "private, no-store" } },
+    );
+  } catch (error) {
+    if (error instanceof DatabaseUnavailableError) return dbUnavailableResponse();
+    throw error;
   }
-
-  return Response.json(
-    { project },
-    { headers: { "cache-control": "private, no-store" } },
-  );
 }
 
 export async function DELETE(_request: Request, { params }: Params) {
@@ -55,13 +72,18 @@ export async function DELETE(_request: Request, { params }: Params) {
     return Response.json({ error: "Identifiant invalide." }, { status: 400 });
   }
 
-  const ok = await deleteProject(id);
-  if (!ok) {
-    return Response.json({ error: "Projet introuvable." }, { status: 404 });
-  }
+  try {
+    const ok = await deleteProject(id);
+    if (!ok) {
+      return Response.json({ error: "Projet introuvable." }, { status: 404 });
+    }
 
-  return new Response(null, {
-    status: 204,
-    headers: { "cache-control": "private, no-store" },
-  });
+    return new Response(null, {
+      status: 204,
+      headers: { "cache-control": "private, no-store" },
+    });
+  } catch (error) {
+    if (error instanceof DatabaseUnavailableError) return dbUnavailableResponse();
+    throw error;
+  }
 }

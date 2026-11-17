@@ -1,4 +1,4 @@
-import { sql } from "./db";
+import { DatabaseUnavailableError, hasDatabaseUrl, sql } from "./db";
 
 export type PortfolioProject = {
   id: number;
@@ -66,6 +66,22 @@ const SEED: Array<{
 
 let seeded = false;
 
+function seedProjects(): PortfolioProject[] {
+  const now = new Date().toISOString();
+  return SEED.map((item, index) => ({
+    id: index + 1,
+    title: item.title,
+    description: item.description,
+    url: item.url,
+    repo_url: item.repo_url,
+    tags: item.tags,
+    featured: item.featured,
+    sort_order: item.sort_order,
+    created_at: now,
+    updated_at: now,
+  }));
+}
+
 export async function ensureSeedProjects(): Promise<void> {
   if (seeded) return;
   const rows = await sql<{ count: string }>(
@@ -94,13 +110,33 @@ export async function ensureSeedProjects(): Promise<void> {
 }
 
 export async function listProjects(): Promise<PortfolioProject[]> {
-  await ensureSeedProjects();
-  return sql<PortfolioProject>(
-    `select id, title, description, url, repo_url, tags, featured, sort_order,
-            created_at::text, updated_at::text
-     from portfolio_projects
-     order by sort_order asc, id desc`,
-  );
+  try {
+    await ensureSeedProjects();
+    return await sql<PortfolioProject>(
+      `select id, title, description, url, repo_url, tags, featured, sort_order,
+              created_at::text, updated_at::text
+       from portfolio_projects
+       order by sort_order asc, id desc`,
+    );
+  } catch (error) {
+    if (
+      error instanceof DatabaseUnavailableError ||
+      !hasDatabaseUrl()
+    ) {
+      return seedProjects();
+    }
+    // Unexpected DB errors on Vercel: still keep the public portfolio up.
+    console.error("listProjects failed, using seed fallback", error);
+    return seedProjects();
+  }
+}
+
+function assertWritableDb(): void {
+  if (!hasDatabaseUrl() && process.env.VERCEL) {
+    throw new DatabaseUnavailableError(
+      "CRM requires DATABASE_URL on Vercel. Add a Postgres store and set DATABASE_URL.",
+    );
+  }
 }
 
 export async function createProject(input: {
@@ -112,6 +148,7 @@ export async function createProject(input: {
   featured?: boolean;
   sort_order?: number;
 }): Promise<PortfolioProject> {
+  assertWritableDb();
   await ensureSeedProjects();
   const rows = await sql<PortfolioProject>(
     `insert into portfolio_projects
@@ -144,6 +181,7 @@ export async function updateProject(
     sort_order?: number;
   },
 ): Promise<PortfolioProject | null> {
+  assertWritableDb();
   await ensureSeedProjects();
   const rows = await sql<PortfolioProject>(
     `update portfolio_projects set
@@ -173,6 +211,7 @@ export async function updateProject(
 }
 
 export async function deleteProject(id: number): Promise<boolean> {
+  assertWritableDb();
   await ensureSeedProjects();
   const rows = await sql<{ id: number }>(
     "delete from portfolio_projects where id = $1 returning id",

@@ -1,4 +1,5 @@
 import { requireOwner } from "@/lib/auth";
+import { DatabaseUnavailableError } from "@/lib/db";
 import { createProject, listProjects } from "@/lib/projects";
 
 export const dynamic = "force-dynamic";
@@ -24,19 +25,33 @@ export async function POST(request: Request) {
     return Response.json({ error: "Le titre est requis." }, { status: 400 });
   }
 
-  const project = await createProject({
-    title,
-    description: typeof body?.description === "string" ? body.description : "",
-    url: typeof body?.url === "string" ? body.url : "",
-    repo_url: typeof body?.repo_url === "string" ? body.repo_url : "",
-    tags: typeof body?.tags === "string" ? body.tags : "",
-    featured: Boolean(body?.featured),
-    sort_order:
-      typeof body?.sort_order === "number" ? body.sort_order : undefined,
-  });
+  try {
+    const project = await createProject({
+      title,
+      description:
+        typeof body?.description === "string" ? body.description : "",
+      url: typeof body?.url === "string" ? body.url : "",
+      repo_url: typeof body?.repo_url === "string" ? body.repo_url : "",
+      tags: typeof body?.tags === "string" ? body.tags : "",
+      featured: Boolean(body?.featured),
+      sort_order:
+        typeof body?.sort_order === "number" ? body.sort_order : undefined,
+    });
 
-  return Response.json(
-    { project },
-    { status: 201, headers: { "cache-control": "private, no-store" } },
-  );
+    return Response.json(
+      { project },
+      { status: 201, headers: { "cache-control": "private, no-store" } },
+    );
+  } catch (error) {
+    if (error instanceof DatabaseUnavailableError) {
+      return Response.json(
+        {
+          error:
+            "Base de données absente. Ajoutez DATABASE_URL (Postgres) sur Vercel.",
+        },
+        { status: 503, headers: { "cache-control": "private, no-store" } },
+      );
+    }
+    throw error;
+  }
 }

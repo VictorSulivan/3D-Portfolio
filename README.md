@@ -46,11 +46,21 @@ Admin local : identité simulée privée (`cursor/identity.dev.js`).
 
 | Variable | Usage |
 | --- | --- |
-| `DATABASE_URL` | Postgres production (fourni par publish-app) |
+| `DATABASE_URL` | Postgres (CRM + projets persistés). Obligatoire sur Vercel pour le CRM. |
 | `GITHUB_USERNAME` | Défaut `VictorSulivan` |
 | `GITHUB_TOKEN` | Optionnel, pour remonter les limites API |
 
 Ne jamais committer de secrets. En local, laissez `DATABASE_URL` non défini pour PGlite.
+
+### Postgres sur Vercel (runtime)
+
+Sans `DATABASE_URL`, le site public affiche les projets seed (lecture seule). PGlite **n’est pas** utilisé sur Vercel (échec serverless).
+
+1. Vercel → Project → **Storage** → créer **Postgres** (ou Neon/Supabase).
+2. Relier la store au projet (injecte `DATABASE_URL`, parfois `POSTGRES_URL` — copier la connection string dans `DATABASE_URL` si besoin).
+3. Settings → Environment Variables → `DATABASE_URL` pour Preview **et** Production.
+4. Redéployer. Le script `npm run build` exécute `scripts/migrate.mjs` si `DATABASE_URL` est présent.
+5. CRM `/admin` : écritures possibles seulement avec Postgres + auth (Cursor Identity sur publish privé ; sur Vercel public, les mutations restent protégées mais l’identité Cursor n’est pas fournie — préférer Cursor publish privé pour le CRM).
 
 ## Publication Cursor
 
