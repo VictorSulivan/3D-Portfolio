@@ -1,12 +1,17 @@
+/* Runtime CSS fonts — no next/font/google build-time fetch. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --ink: #07110f;
-  --moss: #4f7d5f;
-  --brass: #c9a45c;
-  --mist: #e4ebe7;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --bg: #0d1117;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
 }
 
 html {
@@ -14,13 +19,14 @@ html {
 }
 
 body {
-  color: var(--mist);
-  background: #07110f;
+  color: var(--text);
+  background: #010409;
   min-height: 100vh;
+  font-family: var(--font-sans);
 }
 
 ::selection {
-  background: rgba(201, 164, 92, 0.35);
+  background: rgba(255, 255, 255, 0.18);
   color: #fff;
 }
 
@@ -33,25 +39,37 @@ body {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: soft-light;
 }
 
 .grid-fade {
   background-image:
-    linear-gradient(rgba(228, 235, 231, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(228, 235, 231, 0.04) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 30% 20%, black 20%, transparent 72%);
 }
 
 .section-rule {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(201, 164, 92, 0.45),
-    transparent
-  );
+  background: #30363d;
+}
+
+.terminal-cursor::after {
+  content: "▋";
+  margin-left: 0.15em;
+  animation: blink 1.1s step-end infinite;
+  color: #e6edf3;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

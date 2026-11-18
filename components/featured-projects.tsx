@@ -16,51 +16,48 @@ export function FeaturedProjects({
   const list = featured.length > 0 ? featured : projects.slice(0, 4);
 
   return (
-    <section id="projets" className="relative px-6 py-24 md:px-8 md:py-32">
-      <div className="section-rule mb-16" />
-      <div className="mx-auto max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.24em] text-brass-400">
-          Projets sélectionnés
+    <section id="projets" className="relative px-5 py-20 md:px-6 md:py-28">
+      <div className="section-rule mb-14" />
+      <div className="mx-auto max-w-5xl">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-gh-muted">
+          // projets
         </p>
-        <h2 className="mt-3 max-w-2xl font-display text-4xl text-mist-50 md:text-5xl">
-          Travaux mis en avant
+        <h2 className="mt-3 max-w-2xl font-mono text-2xl font-semibold text-gh-text md:text-3xl">
+          Sélection CRM
         </h2>
-        <p className="mt-4 max-w-2xl text-mist-200/80">
-          Projets gérés depuis le CRM et persistés en base — mis à jour hors
-          du seul listing GitHub.
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gh-muted md:text-base">
+          Projets mis en avant depuis la base — distincts du listing GitHub
+          brut.
         </p>
 
-        <div className="mt-14 space-y-10">
-          {list.map((project, index) => (
+        <div className="mt-10 divide-y divide-gh-border rounded-md border border-gh-border bg-gh-bg/60">
+          {list.map((project) => (
             <article
               key={project.id}
-              className="group grid gap-4 border-b border-mist-200/10 pb-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-end"
+              className="flex flex-col gap-3 p-5 transition hover:bg-gh-hover/40 md:flex-row md:items-center md:justify-between"
             >
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-moss-400">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 font-display text-3xl text-mist-50 transition group-hover:text-brass-300">
+              <div className="min-w-0">
+                <h3 className="font-mono text-base font-semibold text-gh-text">
                   {project.title}
                 </h3>
-                <p className="mt-3 max-w-2xl text-mist-200/80">
+                <p className="mt-1.5 text-sm leading-relaxed text-gh-muted">
                   {project.description}
                 </p>
                 {tagList(project.tags).length > 0 && (
-                  <p className="mt-4 text-sm text-mist-400">
+                  <p className="mt-3 font-mono text-[11px] text-gh-muted">
                     {tagList(project.tags).join(" · ")}
                   </p>
                 )}
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex shrink-0 gap-4 font-mono text-xs">
                 {project.url ? (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-brass-300 underline-offset-4 hover:underline"
+                    className="text-gh-text underline-offset-4 hover:underline"
                   >
-                    Démo
+                    demo
                   </a>
                 ) : null}
                 {project.repo_url ? (
@@ -68,9 +65,9 @@ export function FeaturedProjects({
                     href={project.repo_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-mist-200 underline-offset-4 hover:underline"
+                    className="text-gh-muted underline-offset-4 hover:text-gh-text hover:underline"
                   >
-                    Code
+                    code
                   </a>
                 ) : null}
               </div>

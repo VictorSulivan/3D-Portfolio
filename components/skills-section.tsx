@@ -2,37 +2,36 @@ import { skillGroups } from "@/lib/portfolio";
 
 export function SkillsSection() {
   return (
-    <section id="competences" className="relative px-6 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.24em] text-brass-400">
-          Compétences
+    <section id="competences" className="relative px-5 py-20 md:px-6 md:py-28">
+      <div className="mx-auto max-w-5xl">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-gh-muted">
+          // compétences
         </p>
-        <h2 className="mt-3 max-w-2xl font-display text-4xl text-mist-50 md:text-5xl">
-          Développement, DevOps et savoir-faire produit
+        <h2 className="mt-3 max-w-2xl font-mono text-2xl font-semibold text-gh-text md:text-3xl">
+          Développement, DevOps et delivery
         </h2>
-        <p className="mt-4 max-w-2xl text-mist-200/80">
-          Une stack orientée livraison : code clair, pipelines stables, et
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gh-muted md:text-base">
+          Une stack orientée production : code clair, pipelines stables,
           collaboration efficace.
         </p>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-3">
-          {skillGroups.map((group, index) => (
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="animate-rise border-t border-mist-200/15 pt-6"
-              style={{ animationDelay: `${index * 0.08}s` }}
+              className="rounded-md border border-gh-border bg-gh-bg/80 p-5"
             >
-              <h3 className="font-display text-2xl text-mist-50">
+              <h3 className="font-mono text-sm font-semibold text-gh-text">
                 {group.title}
               </h3>
-              <p className="mt-2 text-sm text-mist-400">{group.summary}</p>
-              <ul className="mt-6 space-y-2.5">
+              <p className="mt-1.5 text-xs text-gh-muted">{group.summary}</p>
+              <ul className="mt-5 space-y-2 border-t border-gh-border pt-4">
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 text-mist-100/90"
+                    className="flex items-start gap-2 font-mono text-xs text-gh-subtle"
                   >
-                    <span className="h-px w-4 bg-moss-400/80" />
+                    <span className="mt-0.5 text-gh-muted">›</span>
                     {item}
                   </li>
                 ))}

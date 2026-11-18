@@ -14,21 +14,24 @@ export default async function AdminPage() {
   const authorized = !(owner instanceof Response);
 
   return (
-    <main className="min-h-screen bg-atmosphere px-6 py-16 md:px-8">
+    <main className="min-h-screen bg-atmosphere px-5 py-14 md:px-6">
       <div className="mx-auto max-w-4xl">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-brass-400">
-              CRM privé
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-gh-muted">
+              // crm
             </p>
-            <h1 className="mt-2 font-display text-4xl text-mist-50">
+            <h1 className="mt-2 font-mono text-2xl font-semibold text-gh-text md:text-3xl">
               Gestion des projets
             </h1>
-            <p className="mt-2 text-mist-200/80">
+            <p className="mt-2 text-sm text-gh-muted">
               Accès réservé au propriétaire (publication privée Cursor).
             </p>
           </div>
-          <Link href="/" className="text-sm text-moss-400 hover:text-moss-400/80">
+          <Link
+            href="/"
+            className="font-mono text-xs text-gh-muted hover:text-gh-text"
+          >
             ← Portfolio
           </Link>
         </div>
@@ -36,11 +39,11 @@ export default async function AdminPage() {
         {authorized ? (
           <CrmPanel initialProjects={projects} />
         ) : (
-          <div className="rounded-sm border border-brass-400/30 bg-ink-900/60 p-8">
-            <h2 className="font-display text-2xl text-mist-50">
+          <div className="rounded-md border border-gh-border bg-gh-surface p-8">
+            <h2 className="font-mono text-lg font-semibold text-gh-text">
               Authentification requise
             </h2>
-            <p className="mt-3 text-mist-200/80">
+            <p className="mt-3 text-sm text-gh-muted">
               Connectez-vous via la publication privée de l’app pour gérer les
               projets. Les mutations API exigent aussi l’identité propriétaire.
             </p>

@@ -18,7 +18,7 @@ export default async function HomePage() {
   ]);
 
   return (
-    <main className="bg-ink-950 text-mist-100">
+    <main className="bg-gh-canvas text-gh-text">
       <SiteHeader />
       <Hero />
       <SkillsSection />

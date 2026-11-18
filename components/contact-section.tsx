@@ -2,33 +2,23 @@ import { profile } from "@/lib/portfolio";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative px-6 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-sm border border-mist-200/10 bg-ink-900/50 px-8 py-16 md:px-14">
-        <p className="text-sm uppercase tracking-[0.24em] text-brass-400">
-          Contact
+    <section id="contact" className="relative px-5 py-20 md:px-6 md:py-28">
+      <div className="mx-auto max-w-5xl rounded-md border border-gh-border bg-gh-surface px-6 py-12 md:px-10">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-gh-muted">
+          // contact
         </p>
-        <h2 className="mt-3 max-w-xl font-display text-4xl text-mist-50 md:text-5xl">
-          Un projet, une idée, une collaboration ?
+        <h2 className="mt-3 max-w-xl font-mono text-2xl font-semibold text-gh-text md:text-3xl">
+          Un projet en tête ?
         </h2>
-        <p className="mt-4 max-w-xl text-mist-200/80">
+        <p className="mt-3 max-w-lg text-sm leading-relaxed text-gh-muted md:text-base">
           Écrivons-nous pour parler stack, délais et ambition produit.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href={`mailto:${profile.email}`}
-            className="rounded-sm bg-moss-500 px-6 py-3 text-sm font-medium text-mist-50 transition hover:bg-moss-400"
-          >
-            {profile.email}
-          </a>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-sm border border-mist-200/20 px-6 py-3 text-sm text-mist-100 transition hover:border-brass-400/50"
-          >
-            GitHub
-          </a>
-        </div>
+        <a
+          href={`mailto:${profile.email}`}
+          className="mt-8 inline-flex rounded-md bg-white px-5 py-2.5 font-mono text-sm font-medium text-gh-canvas transition hover:bg-gh-subtle"
+        >
+          {profile.email}
+        </a>
       </div>
     </section>
   );
