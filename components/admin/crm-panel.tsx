@@ -112,11 +112,11 @@ export function CrmPanel({
 
   if (me && !me.authenticated) {
     return (
-      <div className="rounded-sm border border-brass-400/30 bg-ink-900/60 p-8">
-        <h2 className="font-display text-2xl text-mist-50">Accès refusé</h2>
-        <p className="mt-3 text-mist-200/80">
+      <div className="rounded-md border border-gh-border bg-gh-surface p-8">
+        <h2 className="font-mono text-lg font-semibold text-gh-text">Accès refusé</h2>
+        <p className="mt-3 text-sm text-gh-muted">
           Le CRM est réservé au propriétaire connecté. Publiez l’app en{" "}
-          <strong className="text-brass-300">privé</strong> (owner only) pour
+          <strong className="text-gh-text">privé</strong> (owner only) pour
           administrer les projets.
         </p>
       </div>
@@ -125,11 +125,11 @@ export function CrmPanel({
 
   return (
     <div className="space-y-10">
-      <div className="rounded-sm border border-mist-200/10 bg-ink-900/50 p-5 text-sm text-mist-200/80">
+      <div className="rounded-sm border border-mist-200/10 bg-ink-900/50 p-5 text-sm text-sm text-gh-muted">
         {me?.authenticated ? (
           <p>
             Connecté en tant que{" "}
-            <span className="text-brass-300">{me.name || me.email}</span>
+            <span className="text-gh-text">{me.name || me.email}</span>
             {me.simulated ? " (identité simulée en local)" : ""}.
           </p>
         ) : (
@@ -139,70 +139,70 @@ export function CrmPanel({
 
       <form
         onSubmit={onSubmit}
-        className="grid gap-4 rounded-sm border border-mist-200/10 bg-ink-900/40 p-6 md:grid-cols-2"
+        className="grid gap-4 rounded-md border border-gh-border bg-gh-bg p-5 md:grid-cols-2"
       >
-        <h2 className="md:col-span-2 font-display text-2xl text-mist-50">
+        <h2 className="md:col-span-2 font-mono text-lg font-semibold text-gh-text">
           {form.id ? "Modifier le projet" : "Ajouter un projet"}
         </h2>
         <label className="block text-sm">
-          <span className="text-mist-400">Titre</span>
+          <span className="text-gh-muted">Titre</span>
           <input
             required
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
-            className="mt-1 w-full rounded-sm border border-mist-200/15 bg-ink-950 px-3 py-2 text-mist-50 outline-none focus:border-moss-400"
+            className="mt-1 w-full rounded-md border border-gh-border bg-gh-canvas px-3 py-2 font-mono text-sm text-gh-text outline-none focus:border-gh-muted"
           />
         </label>
         <label className="block text-sm">
-          <span className="text-mist-400">Ordre</span>
+          <span className="text-gh-muted">Ordre</span>
           <input
             type="number"
             value={form.sort_order}
             onChange={(e) =>
               setForm({ ...form, sort_order: Number(e.target.value) })
             }
-            className="mt-1 w-full rounded-sm border border-mist-200/15 bg-ink-950 px-3 py-2 text-mist-50 outline-none focus:border-moss-400"
+            className="mt-1 w-full rounded-md border border-gh-border bg-gh-canvas px-3 py-2 font-mono text-sm text-gh-text outline-none focus:border-gh-muted"
           />
         </label>
         <label className="md:col-span-2 block text-sm">
-          <span className="text-mist-400">Description</span>
+          <span className="text-gh-muted">Description</span>
           <textarea
             rows={3}
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="mt-1 w-full rounded-sm border border-mist-200/15 bg-ink-950 px-3 py-2 text-mist-50 outline-none focus:border-moss-400"
+            className="mt-1 w-full rounded-md border border-gh-border bg-gh-canvas px-3 py-2 font-mono text-sm text-gh-text outline-none focus:border-gh-muted"
           />
         </label>
         <label className="block text-sm">
-          <span className="text-mist-400">URL démo</span>
+          <span className="text-gh-muted">URL démo</span>
           <input
             value={form.url}
             onChange={(e) => setForm({ ...form, url: e.target.value })}
-            className="mt-1 w-full rounded-sm border border-mist-200/15 bg-ink-950 px-3 py-2 text-mist-50 outline-none focus:border-moss-400"
+            className="mt-1 w-full rounded-md border border-gh-border bg-gh-canvas px-3 py-2 font-mono text-sm text-gh-text outline-none focus:border-gh-muted"
           />
         </label>
         <label className="block text-sm">
-          <span className="text-mist-400">URL dépôt</span>
+          <span className="text-gh-muted">URL dépôt</span>
           <input
             value={form.repo_url}
             onChange={(e) => setForm({ ...form, repo_url: e.target.value })}
-            className="mt-1 w-full rounded-sm border border-mist-200/15 bg-ink-950 px-3 py-2 text-mist-50 outline-none focus:border-moss-400"
+            className="mt-1 w-full rounded-md border border-gh-border bg-gh-canvas px-3 py-2 font-mono text-sm text-gh-text outline-none focus:border-gh-muted"
           />
         </label>
         <label className="block text-sm">
-          <span className="text-mist-400">Tags (séparés par des virgules)</span>
+          <span className="text-gh-muted">Tags (séparés par des virgules)</span>
           <input
             value={form.tags}
             onChange={(e) => setForm({ ...form, tags: e.target.value })}
-            className="mt-1 w-full rounded-sm border border-mist-200/15 bg-ink-950 px-3 py-2 text-mist-50 outline-none focus:border-moss-400"
+            className="mt-1 w-full rounded-md border border-gh-border bg-gh-canvas px-3 py-2 font-mono text-sm text-gh-text outline-none focus:border-gh-muted"
           />
         </label>
-        <label className="flex items-center gap-3 text-sm text-mist-200">
+        <label className="flex items-center gap-3 text-sm text-gh-subtle">
           <input
             type="checkbox"
             checked={form.featured}
             onChange={(e) => setForm({ ...form, featured: e.target.checked })}
-            className="h-4 w-4 accent-brass-400"
+            className="h-4 w-4 accent-white"
           />
           Projet mis en avant
         </label>
@@ -213,7 +213,7 @@ export function CrmPanel({
           <button
             type="submit"
             disabled={busy}
-            className="rounded-sm bg-brass-400 px-5 py-2.5 text-sm font-medium text-ink-950 disabled:opacity-60"
+            className="rounded-md bg-white px-4 py-2 font-mono text-sm font-medium text-gh-canvas disabled:opacity-60"
           >
             {form.id ? "Enregistrer" : "Créer"}
           </button>
@@ -221,7 +221,7 @@ export function CrmPanel({
             <button
               type="button"
               onClick={() => setForm(emptyForm)}
-              className="rounded-sm border border-mist-200/20 px-5 py-2.5 text-sm text-mist-100"
+              className="rounded-md border border-gh-border px-4 py-2 font-mono text-sm text-gh-text"
             >
               Annuler
             </button>
@@ -230,24 +230,24 @@ export function CrmPanel({
       </form>
 
       <div className="space-y-4">
-        <h2 className="font-display text-2xl text-mist-50">
+        <h2 className="font-mono text-lg font-semibold text-gh-text">
           Projets en base ({projects.length})
         </h2>
         {projects.map((project) => (
           <div
             key={project.id}
-            className="flex flex-col gap-3 border border-mist-200/10 bg-ink-900/30 p-4 md:flex-row md:items-center md:justify-between"
+            className="flex flex-col gap-3 rounded-md border border-gh-border bg-gh-bg/80 p-4 md:flex-row md:items-center md:justify-between"
           >
             <div>
-              <p className="font-display text-xl text-mist-50">
+              <p className="font-mono text-sm font-semibold text-gh-text">
                 {project.title}
                 {project.featured ? (
-                  <span className="ml-2 text-xs uppercase tracking-wider text-brass-300">
+                  <span className="ml-2 font-mono text-[10px] uppercase tracking-wider text-gh-muted">
                     featured
                   </span>
                 ) : null}
               </p>
-              <p className="mt-1 text-sm text-mist-400">
+              <p className="mt-1 text-sm text-gh-muted">
                 ordre {project.sort_order}
                 {project.tags ? ` · ${project.tags}` : ""}
               </p>
@@ -267,7 +267,7 @@ export function CrmPanel({
                     sort_order: project.sort_order,
                   })
                 }
-                className="text-sm text-brass-300 hover:underline"
+                className="font-mono text-xs text-gh-text hover:underline"
               >
                 Éditer
               </button>
