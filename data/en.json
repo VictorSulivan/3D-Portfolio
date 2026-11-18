@@ -1,0 +1,501 @@
+{
+  "language": {
+    "label": "Language"
+  },
+  "titles": {
+    "home": "Mathéo Guillemin | Portfolio",
+    "skills": "Skills | Mathéo Guillemin",
+    "projects": "Projects | Mathéo Guillemin",
+    "github": "GitHub | Mathéo Guillemin",
+    "experience": "Experience | Mathéo Guillemin",
+    "contact": "Contact | Mathéo Guillemin",
+    "secrets": "Commands | Mathéo Guillemin",
+    "project": "Project | Mathéo Guillemin"
+  },
+  "nav": {
+    "skills": "Skills",
+    "projects": "Projects",
+    "github": "GitHub",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "seeProjects": "See the projects",
+    "openTerminal": "Open the terminal"
+  },
+  "profile": {
+    "role": "Full-stack developer & DevOps",
+    "tagline": "I build solid web products, from the interface to the infrastructure.",
+    "location": "France"
+  },
+  "skills": {
+    "eyebrow": "// skills",
+    "title": "Development, DevOps and delivery",
+    "intro": "A production-minded stack: clear code, stable pipelines, effective collaboration.",
+    "groups": [
+      {
+        "title": "Development",
+        "summary": "Careful interfaces and reliable APIs.",
+        "items": [
+          "TypeScript / JavaScript",
+          "React / Next.js",
+          "Node.js / Express",
+          "Golang",
+          "SQL & NoSQL",
+          "C / C++ / C#"
+        ]
+      },
+      {
+        "title": "DevOps",
+        "summary": "Continuous delivery and stable environments.",
+        "items": [
+          "Git & GitHub Actions",
+          "Docker",
+          "CI/CD",
+          "Linux / shells",
+          "Basic observability",
+          "Cloud deployments"
+        ]
+      },
+      {
+        "title": "Related skills",
+        "summary": "Product quality and agile collaboration.",
+        "items": [
+          "Code review",
+          "Application architecture",
+          "Tests & performance",
+          "Agile / Scrum",
+          "API integration",
+          "Client support"
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "// experience",
+    "title": "Experience",
+    "items": [
+      {
+        "title": "Freelance developer",
+        "company": "MaTech",
+        "period": "July 2024 — today",
+        "points": [
+          "Full-stack web and software applications shaped around the client.",
+          "A mixed stack: JS/TS, Go, C-family, SQL/NoSQL."
+        ]
+      },
+      {
+        "title": "React TypeScript developer (apprenticeship)",
+        "company": "Roole",
+        "period": "September 2023 — August 2025",
+        "points": [
+          "React/TypeScript front end and backend API integration.",
+          "Agile rituals, code reviews and continuous delivery."
+        ]
+      },
+      {
+        "title": "JavaScript intern",
+        "company": "Inow",
+        "period": "May 2023 — June 2023",
+        "points": [
+          "Web features in JavaScript and .NET.",
+          "Responsive design and browser compatibility."
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "// contact",
+    "title": "A project in mind?",
+    "intro": "Write to me about the stack, the timeline and the product ambition."
+  },
+  "projects": {
+    "eyebrow": "// projects",
+    "heading": "All projects",
+    "intro": "Each card opens a presentation page. The live site and the code stay beside it.",
+    "empty": "No project yet.",
+    "sheet": "page",
+    "site": "site",
+    "code": "code",
+    "back": "Back to projects",
+    "projectEyebrow": "// project",
+    "noDescription": "No description for this project.",
+    "seeSite": "See the site",
+    "seeCode": "See the code"
+  },
+  "github": {
+    "eyebrow": "// github",
+    "account": "Public repositories from the account",
+    "orgsPrefix": " and orgs: ",
+    "noDescription": "No description.",
+    "empty": "No public repository found.",
+    "user": "user",
+    "org": "org"
+  },
+  "footer": {
+    "github": "GitHub"
+  },
+  "secrets": {
+    "eyebrow": "// found",
+    "title": "Every command",
+    "intro": "The full terminal list. Each line is a valid input.",
+    "aliasOf": "alias of",
+    "opens": "opens",
+    "clears": "clears the screen",
+    "closes": "closes the terminal"
+  },
+  "terminalUi": {
+    "close": "close",
+    "inputLabel": "Command",
+    "dialogLabel": "Terminal",
+    "noted": "noted. {count}/10",
+    "allFound": "all ten are in.",
+    "alreadyFound": "all ten are already in.",
+    "progress": "found: {count}/10"
+  },
+  "terminal": {
+    "prompt": "visitor@portfolio:~$",
+    "welcome": [
+      "Nothing here runs on a server.",
+      "Type help. Only listed commands answer."
+    ],
+    "unknown": "{command}: command not found. Type help.",
+    "hunt": [
+      "rm-rf",
+      "coffee",
+      "alan",
+      "neofetch",
+      "sudo",
+      "vim",
+      "cat .secret",
+      "ls -a",
+      "hack",
+      "shutdown"
+    ],
+    "commands": {
+      "help": {
+        "lines": [
+          "allowed commands — anything else is ignored",
+          "",
+          "  help                 this list",
+          "  whoami               identity",
+          "  skills               stack",
+          "  parcours             experience",
+          "  projets              projects",
+          "  contact              email",
+          "  github               GitHub profile",
+          "  ls                   files",
+          "  pwd                  current directory",
+          "  open <page>          open a page",
+          "  clear                clear",
+          "  exit                 close",
+          "",
+          "pages: accueil, competences, projets, github, parcours, contact"
+        ]
+      },
+      "man": {
+        "alias": "help"
+      },
+      "whoami": {
+        "lines": [
+          "Mathéo Guillemin",
+          "Full-stack developer & DevOps — France",
+          "I build solid web products, from the interface to the infrastructure.",
+          "email    matheoprofessionnel12@gmail.com",
+          "github   VictorSulivan"
+        ]
+      },
+      "about": {
+        "alias": "whoami"
+      },
+      "skills": {
+        "lines": [
+          "Development",
+          "  TypeScript / JavaScript",
+          "  React / Next.js",
+          "  Node.js / Express",
+          "  Golang",
+          "  SQL & NoSQL",
+          "  C / C++ / C#",
+          "",
+          "DevOps",
+          "  Git & GitHub Actions",
+          "  Docker",
+          "  CI/CD",
+          "  Linux / shells",
+          "  Basic observability",
+          "  Cloud deployments",
+          "",
+          "Related skills",
+          "  Code review",
+          "  Application architecture",
+          "  Tests & performance",
+          "  Agile / Scrum",
+          "  API integration",
+          "  Client support"
+        ]
+      },
+      "stack": {
+        "alias": "skills"
+      },
+      "parcours": {
+        "lines": [
+          "July 2024 — today  Freelance developer @ MaTech",
+          "  Full-stack web and software applications shaped around the client.",
+          "  A mixed stack: JS/TS, Go, C-family, SQL/NoSQL.",
+          "",
+          "September 2023 — August 2025  React TypeScript developer (apprenticeship) @ Roole",
+          "  React/TypeScript front end and backend API integration.",
+          "  Agile rituals, code reviews and continuous delivery.",
+          "",
+          "May 2023 — June 2023  JavaScript intern @ Inow",
+          "  Web features in JavaScript and .NET.",
+          "  Responsive design and browser compatibility."
+        ]
+      },
+      "experience": {
+        "alias": "parcours"
+      },
+      "cv": {
+        "alias": "parcours"
+      },
+      "projets": {
+        "lines": [
+          " 1  Portfolio 3D Three.js",
+          " 2  Backend e-commerce Stripe",
+          " 3  Clone WhatsApp fullstack",
+          " 4  Simulateur de distributeur (C)",
+          "",
+          "open <id> opens the page."
+        ]
+      },
+      "projects": {
+        "alias": "projets"
+      },
+      "contact": {
+        "lines": [
+          "email   matheoprofessionnel12@gmail.com",
+          "open contact for the page."
+        ]
+      },
+      "mail": {
+        "alias": "contact"
+      },
+      "github": {
+        "lines": [
+          "VictorSulivan",
+          "https://github.com/VictorSulivan",
+          "open github for the repositories."
+        ]
+      },
+      "pwd": {
+        "lines": [
+          "/home/visitor"
+        ]
+      },
+      "ls": {
+        "lines": [
+          "README  competences  contact  github  parcours  projets"
+        ]
+      },
+      "ls -a": {
+        "lines": [
+          ".  ..  .secret  README  competences  contact  github  parcours  projets"
+        ]
+      },
+      "cat readme": {
+        "lines": [
+          "Portfolio of Mathéo Guillemin.",
+          "Commands stay in the browser.",
+          "Type help. open <page> changes page."
+        ]
+      },
+      "cat competences": {
+        "alias": "skills"
+      },
+      "cat parcours": {
+        "alias": "parcours"
+      },
+      "cat contact": {
+        "alias": "contact"
+      },
+      "cat github": {
+        "alias": "github"
+      },
+      "cat projets": {
+        "error": true,
+        "lines": [
+          "cat: projets: is a directory"
+        ]
+      },
+      "cat .secret": {
+        "lines": [
+          "You are not on a server.",
+          "You are in a prop left open.",
+          "",
+          "Note from Mathéo:",
+          "“Code nobody runs is still code.",
+          "  Thanks for looking behind ls.”",
+          "",
+          "If you want a sequel: alan"
+        ]
+      },
+      "open accueil": {
+        "lines": [
+          "opening /"
+        ],
+        "navigate": "/"
+      },
+      "open home": {
+        "alias": "open accueil"
+      },
+      "open competences": {
+        "lines": [
+          "opening /competences"
+        ],
+        "navigate": "/competences"
+      },
+      "open projets": {
+        "lines": [
+          "opening /projets"
+        ],
+        "navigate": "/projets"
+      },
+      "open github": {
+        "lines": [
+          "opening /github"
+        ],
+        "navigate": "/github"
+      },
+      "open parcours": {
+        "lines": [
+          "opening /parcours"
+        ],
+        "navigate": "/parcours"
+      },
+      "open contact": {
+        "lines": [
+          "opening /contact"
+        ],
+        "navigate": "/contact"
+      },
+      "open 1": {
+        "lines": [
+          "opening /projets/1"
+        ],
+        "navigate": "/projets/1"
+      },
+      "open 2": {
+        "lines": [
+          "opening /projets/2"
+        ],
+        "navigate": "/projets/2"
+      },
+      "open 3": {
+        "lines": [
+          "opening /projets/3"
+        ],
+        "navigate": "/projets/3"
+      },
+      "open 4": {
+        "lines": [
+          "opening /projets/4"
+        ],
+        "navigate": "/projets/4"
+      },
+      "clear": {
+        "clear": true
+      },
+      "exit": {
+        "close": true
+      },
+      "quit": {
+        "alias": "exit"
+      },
+      "close": {
+        "alias": "exit"
+      },
+      "challenge": {
+        "lines": [
+          "Ten commands are hidden in the pages of the site.",
+          "None of them is in help.",
+          "Find them, come back, and type them."
+        ]
+      },
+      "hack": {
+        "lines": [
+          "access denied. the password is not password either."
+        ]
+      },
+      "shutdown": {
+        "lines": [
+          "no. I have a portfolio to show, not a nap to start."
+        ]
+      },
+      "neofetch": {
+        "lines": [
+          "  ____        _ _ _                _",
+          " / ___|_   _(_) | | ___ _ __ ___ (_)_ __",
+          "| |  _| | | | | | |/ _ \\ '_ ` _ \\| | '_ \\",
+          "| |_| | |_| | | | |  __/ | | | | | | | | |",
+          " \\____|\\__,_|_|_|_|\\___|_| |_| |_|_|_| |_|",
+          "",
+          "name       Mathéo Guillemin",
+          "role       Full-stack developer & DevOps",
+          "place      France",
+          "shell      browser",
+          "theme      github dark"
+        ]
+      },
+      "sudo": {
+        "error": true,
+        "lines": [
+          "sudo: this session administers nothing.",
+          "The shell is a prop. Type help."
+        ]
+      },
+      "rm": {
+        "error": true,
+        "lines": [
+          "rm: refused. The files here are cardboard."
+        ]
+      },
+      "rm -rf /": {
+        "alias": "rm"
+      },
+      "rm-rf": {
+        "lines": [
+          "Did you really think that would destroy my site? I designed it better than that."
+        ]
+      },
+      "vim": {
+        "lines": [
+          "VIM",
+          "~",
+          "~",
+          "You are stuck. Type :q to get out."
+        ]
+      },
+      ":q": {
+        "lines": [
+          "left vim."
+        ]
+      },
+      "coffee": {
+        "error": true,
+        "lines": [
+          "coffee: cup not found.",
+          "The machine is in the kitchen, not in this shell."
+        ]
+      },
+      "alan": {
+        "lines": [
+          "« We can only see a short distance ahead,",
+          "but we can see plenty there that needs to be done. »",
+          "",
+          "Alan Turing, 1950"
+        ]
+      }
+    }
+  }
+}

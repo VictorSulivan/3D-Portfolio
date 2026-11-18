@@ -103,6 +103,18 @@ export async function listProjects(): Promise<PortfolioProject[]> {
   );
 }
 
+export async function getProject(id: number): Promise<PortfolioProject | null> {
+  await ensureSeedProjects();
+  const rows = await sql<PortfolioProject>(
+    `select id, title, description, url, repo_url, tags, featured, sort_order,
+            created_at::text, updated_at::text
+     from portfolio_projects
+     where id = $1`,
+    [id],
+  );
+  return rows[0] ?? null;
+}
+
 export async function createProject(input: {
   title: string;
   description?: string;

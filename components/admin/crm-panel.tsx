@@ -174,7 +174,7 @@ export function CrmPanel({
           />
         </label>
         <label className="block text-sm">
-          <span className="text-gh-muted">URL démo</span>
+          <span className="text-gh-muted">URL du site</span>
           <input
             value={form.url}
             onChange={(e) => setForm({ ...form, url: e.target.value })}
